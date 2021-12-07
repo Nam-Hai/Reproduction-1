@@ -1,0 +1,100 @@
+.main {
+
+    .header-container {
+        margin: 22rem auto 6rem;
+        width: auto;
+
+        .header {
+            position: relative;
+            
+            //animation: 0.8s linear forwards headerIntro; 
+            //transform-origin: 50% 80%;
+            filter: drop-shadow( 25px -15px 3px #000000);
+            perspective: 1000px;
+            > * {
+                
+                font-family: 'Migra';
+                
+                font-weight: 600;
+                transform: translateZ(2000px);
+                // text-shadow: 25px -15px 6px #000000;
+                font-size: 5rem;
+                color: white;
+                text-align: center;
+                // animation: 0.7s linear forwards headerIntro; 
+                
+                span {
+                    font-weight: 400;
+                    font-family: 'Roslindale Text';
+                    background-color: white;
+                    //color: #00ffb3;
+                    color: #000000;
+                    &::selection {
+                        background-color: black;
+                        border: 1px solid red;
+                        color: white;
+                    }
+                }
+            }
+            h2 {
+                font-weight: 600;
+                font-family: 'Migra Italic';
+            }
+        }
+    }
+
+    .card {
+        margin: 2rem auto 0;
+        width: 30rem;
+        height: 40rem;
+        opacity: 0;
+        position: relative;
+        animation: 0.5s ease-in-out 0.5s forwards cardOnStart;
+    }
+
+    .text-container {
+        width: 25rem;
+        height: 0;
+        color: white;
+        margin: 0 auto;
+        div {
+            position: relative;
+            font-size: 3.5rem;
+            top: -20rem;
+            left: -10rem;
+            font-weight: 600;
+            line-height: 4.5rem;
+            pointer-events: none;
+        }
+    }
+
+    .la-suite {
+        height: 30rem;
+    }
+}
+
+.selection {
+    &::selection {
+        background-color: white;
+        color: #000000;
+    }
+}
+
+@keyframes headerIntro {
+    from {
+        transform: translateZ(2000px)
+    }
+    to {
+        transform: translateZ(0px)
+    }
+}
+@keyframes cardOnStart {
+    from {
+        opacity: 0;
+        top: 5rem;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}

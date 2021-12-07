@@ -1,0 +1,23 @@
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    position: relative;
+    width: 32rem;
+    height: 42rem;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    position: relative;
+    width: 30rem;
+    height: 40rem;
+    transition-timing-function: ease-out;
+}
