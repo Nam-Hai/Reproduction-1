@@ -38,7 +38,7 @@ export class CardHoverMouseComponent implements OnInit {
     for (let index = 0; index < this.indexmax + 1; index++) {
       setTimeout( () => {
         this.document.querySelector('img').style.transform = `rotateX(${(320 - this.lastX - (320 - this.lastX)*(index/this.indexmax))*this.vitesse*0.5}deg) rotateY(${-(240 - this.lastY - (240 - this.lastY)*(index/this.indexmax))*this.vitesse}deg)`;
-      }, index * 5 + 200)
+      }, index * 5 + 100)
     }
     this.lastX = 0;
     this.lastY = 0
