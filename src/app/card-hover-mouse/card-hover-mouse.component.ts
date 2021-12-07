@@ -10,7 +10,7 @@ export class CardHoverMouseComponent implements OnInit {
 
   private mousemove = new EventEmitter<MouseEvent>();
   private last: MouseEvent;
-  vitesse = 0.04;
+  vitesse = 0.06;
   indexmax = 120;
   lastX = 0;
   lastY = 0;
@@ -22,24 +22,12 @@ export class CardHoverMouseComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
   
   @HostListener('mousemove', ['$event'])
+
   handleMousemove(event): void {
-    /**
-    if( this.mouseLeaved ) {
-      this.mouseLeaved = false
-      this.lastX = event.layerY;
-      this.lastY = event.layerX;
-      for (let index = 0; index < 30 + 1; index++) {
-        setTimeout( () => {
-          this.document.querySelector('img').style.transform = `rotateX(${(320 - this.lastX)*(index/this.indexmax)*this.vitesse*0.5}deg) rotateY(${-(240 - this.lastY )*(index/this.indexmax)*this.vitesse}deg)`;
-        }, index * 5 + 100)
-      }
-    }
-    */
     setTimeout( () => {
-      this.document.querySelector('img').style.transform = `rotateX(${(320 - event.layerY)*this.vitesse*0.4}deg) rotateY(${-(240 - event.layerX)*this.vitesse}deg)`;
+      this.document.querySelector('img').style.transform = `rotateX(${(320 - event.layerY)*this.vitesse*0.6}deg) rotateY(${-(240 - event.layerX)*this.vitesse}deg)`;
       this.lastX = event.layerY;
       this.lastY = event.layerX;
     }, 300)
