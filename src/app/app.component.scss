@@ -65,6 +65,9 @@
             font-weight: 600;
             line-height: 4.5rem;
             pointer-events: none;
+            opacity: 0;
+            transform: translateX(-100px);
+            will-change: transform, opacity;
         }
     }
 

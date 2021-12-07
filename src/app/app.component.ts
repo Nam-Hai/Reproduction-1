@@ -37,6 +37,7 @@ export class AppComponent implements OnInit{
 
   initialAnimations(): void {
     this.headerOnStartState = "onStart";
+    gsap.registerPlugin(ScrollTrigger);
   }
 
   initScrollAnimations(): void {
@@ -72,21 +73,21 @@ export class AppComponent implements OnInit{
       scrollTrigger: {
         trigger: this.text1.nativeElement,
         start: "top 80%",
-        onEnter: function(yo) {
-          console.log("yo");
-      },
+        onEnter: self => {
+          gsap.to(this.text1.nativeElement,{
+            x: 0,
+            duration: 0.3,
+            opacity: 1
+        })},
+        onLeaveBack: self => {
+          gsap.to(this.text1.nativeElement,{
+            x: -100,
+            duration: 0.3,
+            opacity: 0
+          })
       }
-    })
-      /**
-      onLeave: function() {
-        gsap.to(this.text1.nativeElement, {
-          x: -100,
-          opacity: 0,
-          webkitFilter:"blur(" + 2 + "px)",
-          duration: 0.3,
-        });
-      },
-      */
+
+    }})
     
   }
 

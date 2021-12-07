@@ -39,7 +39,7 @@ export class CardHoverMouseComponent implements OnInit {
       this.img.style.transform = `rotateX(${(320 - event.layerY)*this.vitesse*0.6}deg) rotateY(${-(240 - event.layerX)*this.vitesse}deg)`;
       this.lastX = event.layerY;
       this.lastY = event.layerX;
-    }, 0)
+    }, 300)
     
     this.posCursor = [event.layerX, event.layerY];
     
