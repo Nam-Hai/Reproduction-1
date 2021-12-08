@@ -16,7 +16,6 @@
     justify-content: center;
     align-items: center;
     perspective: 1000px;
-
 }
 
 .img {
@@ -27,4 +26,5 @@
     // transition-duration: 200ms;
     background-image: url('../../assets/hero-min.jpeg');
     background-size: contain;
+    z-index: 1000;
 }

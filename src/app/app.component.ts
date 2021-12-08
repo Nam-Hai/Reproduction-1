@@ -19,12 +19,16 @@ import { Animations } from "./services/annimation";
 export class AppComponent implements OnInit{
   headerOnStartState: string = "onStart"
   title = 'betc-scroll-animation';
-  @ViewChild('cardHover', {static: true}) cardHover: ElementRef<HTMLElement>;
-  @ViewChild('header', {static: true}) header: ElementRef<HTMLElement>;
-  @ViewChild('text1', {static: true}) text1: ElementRef<HTMLElement>;
-  @ViewChild('panelDroite', {static: true}) panelDroite: ElementRef<HTMLElement>;
-  @ViewChild('image', {static: true}) image: ElementRef<HTMLElement>;
-  @ViewChild('footer', {static: true}) footer: ElementRef<HTMLElement>;
+  @ViewChild('header', { static: true })
+  header!: ElementRef<HTMLElement>;
+  @ViewChild('text1', { static: true })
+  text1!: ElementRef<HTMLElement>;
+  @ViewChild('panelDroite', { static: true })
+  panelDroite!: ElementRef<HTMLElement>;
+  @ViewChild('image', { static: true })
+  image!: ElementRef<HTMLElement>;
+  @ViewChild('footer', { static: true })
+  footer!: ElementRef<HTMLElement>;
 
 
   constructor(@Inject(DOCUMENT) private document: Document) {
@@ -157,7 +161,7 @@ export class AppComponent implements OnInit{
     gsap.timeline({
       scrollTrigger: {
         trigger: this.footer.nativeElement,
-        start: "top 92%",
+        start: "top 88%",
         onEnter: () => {
           gsap.to(this.footer.nativeElement, {
             opacity: 1,

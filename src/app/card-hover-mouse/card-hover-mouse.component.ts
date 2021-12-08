@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, HostListener, OnInit, Renderer2, Inject, EventEmitter } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-card-hover-mouse',
@@ -9,8 +9,6 @@ import { Component, ElementRef, HostListener, OnInit, Renderer2, Inject, EventEm
 })
 export class CardHoverMouseComponent implements OnInit {
 
-  private mousemove = new EventEmitter<MouseEvent>();
-  private last: MouseEvent;
   vitesse = 0.06;
   indexmax = 120;
   lastX = 0;
@@ -31,27 +29,17 @@ export class CardHoverMouseComponent implements OnInit {
   }
   
   @HostListener('mousemove', ['$event'])
-
-  handleMousemove(event): void {
-
-    
-
+  handleMousemove(event: { layerY: number; layerX: number; }): void {
     setTimeout( () => {
       this.img.style.transform = `rotateX(${(320 - event.layerY)*this.vitesse*0.6}deg) rotateY(${-(240 - event.layerX)*this.vitesse}deg)`;
       this.lastX = event.layerY;
       this.lastY = event.layerX;
-    }, 300)
-    
+    }, 300);
     this.posCursor = [event.layerX, event.layerY];
-    
-    
-    // this.cursor.style.transform = "translate3d( "+this.posCursor[0]+"px, "+this.posCursor[1]+"px, 30px)";
-    
+  };
 
-    
-  }
   @HostListener('mouseleave', ['$event'])
-  handleLeave(event): void {  
+  handleLeave(): void {  
     this.mouseLeaved = true  
     for (let index = 0; index < this.indexmax + 1; index++) {
       setTimeout( () => {

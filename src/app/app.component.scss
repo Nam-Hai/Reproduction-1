@@ -1,8 +1,39 @@
+:root {
+}
+nav {
+    margin: 2rem 10rem 0 10rem;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    span {
+        color: white;
+        font-family: "Migra";
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    svg {
+        width: 3rem;
+    }
+    .github {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover .gradient-content {
+            opacity: 1;
+        }
+        .gradient-content {
+            transform: rotate(-131deg);
+        }
+    }
+}
 .main {
     color: white;
-    
+    padding-top: 22rem;
     .header-container {
-        margin: 22rem auto 6rem;
+        margin: 0 auto 6rem;
         width: auto;
 
         .header {
@@ -180,13 +211,23 @@
     }
 }
 
+.selection-blue {
+    &::selection {
+        background: #0018ca;
+        color: white;
+    }
+}
+
 footer {
+    margin-top: 25rem;
+    margin-bottom: 4rem;
     width: 100%;
     display: flex;
-    overflow-x: hidden;
+    flex-direction: column;
+    align-items: center;
     .footerImage {
         position: relative;
-        margin: 25rem auto 2rem;
+        margin: 0 auto 2rem;
         width: 60px;
         min-width: 80%;
         height: 25rem;
@@ -214,12 +255,18 @@ footer {
         }  
     }
     .scroller {
+        height: 0rem;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
         display: flex;
-        align-items: center;
+        position: relative;
+        top: -18rem;
         span {
+            font-weight: 600;
             display: inline-block;
             position: relative;
-            font-size: 4rem;
+            font-size: 6rem;
             white-space: nowrap;
             color: white;
             transform: translateX(0);
@@ -227,7 +274,65 @@ footer {
             
         }
     }
+
+    .goUP {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid white;
+        border-radius: 50%;
+        svg {
+            width: 1rem;
+            height: 1rem;
+            
+        }
+
+        &:hover .gradient-content {
+            opacity: 1;
+        }
+
+        
+    }
+
+    
 }
+
+.gradient-content {
+    position: absolute;
+    transform: rotate(22deg);
+    filter: blur(7px);
+    opacity: 0;
+    transition-duration: 350ms;
+    
+    .gradient-item {
+        width: 6px;
+        height: 38px;
+        position: absolute;
+    }
+
+    .gradient1{
+        background-color: greenyellow;
+        transform: translate(0,-50%);
+    }
+    .gradient2{
+        background-color: rgb(255, 241, 47);
+        transform: translate(50%,-50%);
+
+    }
+    .gradient3{
+        background-color: rgb(255, 158, 47);
+        transform: translate(100%, -50%);
+
+    }
+    .gradient4{
+        background-color: rgb(255, 0, 0);
+        transform: translate(150%, -50%);
+
+    }
+}
+
 @keyframes scrollTextLeft {
     from {
         transform: translateX(0);
@@ -237,3 +342,11 @@ footer {
     }
 }
 
+@keyframes cardOnStart {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
