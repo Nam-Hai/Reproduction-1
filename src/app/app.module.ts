@@ -23,7 +23,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot( appRoutes,{
       scrollPositionRestoration: 'enabled'
-    })
+    }),
   ],
   exports: [RouterModule],
   providers: [],

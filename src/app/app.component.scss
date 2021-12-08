@@ -138,11 +138,8 @@
             width: 25rem;
             position: relative;
             right: 0rem;
+            height: 100%;
         }
-    }
-
-    .la-suite3 {
-        height: 40rem;
     }
 }
 
@@ -183,21 +180,60 @@
     }
 }
 
-@keyframes headerIntro {
-    from {
-        transform: translateZ(2000px)
-    }
-    to {
-        transform: translateZ(0px)
-    }
-}
-@keyframes cardOnStart {
-    from {
+footer {
+    width: 100%;
+    display: flex;
+    overflow-x: hidden;
+    .footerImage {
+        position: relative;
+        margin: 25rem auto 2rem;
+        width: 60px;
+        min-width: 80%;
+        height: 25rem;
+        transform: scale(0.9);
         opacity: 0;
-        top: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div {
+            position: absolute;
+            perspective: 500px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            img {
+                filter: grayscale(1);
+                width: 100%;
+                object-fit: cover;
+                transition-duration: 500ms;
+                transition-timing-function: ease-in-out;
+                &:hover {
+                    transform: translateZ(40px);
+                }
+            }
+        }  
     }
-    to {
-        opacity: 1;
-        top: 0;
+    .scroller {
+        display: flex;
+        align-items: center;
+        span {
+            display: inline-block;
+            position: relative;
+            font-size: 4rem;
+            white-space: nowrap;
+            color: white;
+            transform: translateX(0);
+            animation: scrollTextLeft 16s linear infinite;
+            
+        }
     }
 }
+@keyframes scrollTextLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+

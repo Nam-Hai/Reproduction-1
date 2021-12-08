@@ -20,6 +20,7 @@ export class CardHoverMouseComponent implements OnInit {
   posCursor = [0,0];
   img: any;
   cursor: any;
+
   constructor(@Inject(DOCUMENT) private document: Document, private el: ElementRef) {
   }
 

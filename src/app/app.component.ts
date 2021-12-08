@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { DOCUMENT  } from '@angular/common';
 import { Animations } from "./services/annimation";
-import { trigger } from '@angular/animations';
+
 
 
 @Component({
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
   @ViewChild('text1', {static: true}) text1: ElementRef<HTMLElement>;
   @ViewChild('panelDroite', {static: true}) panelDroite: ElementRef<HTMLElement>;
   @ViewChild('image', {static: true}) image: ElementRef<HTMLElement>;
-
+  @ViewChild('footer', {static: true}) footer: ElementRef<HTMLElement>;
 
 
   constructor(@Inject(DOCUMENT) private document: Document) {
@@ -33,9 +33,9 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.initialAnimations();
-    this.initScrollAnimations()  
-    this.initScrollImagesAnimations()
-    
+    this.initScrollAnimations();
+    this.initScrollImagesAnimations();
+    this.initFooterAnimations();
   }
 
   initScrollImagesAnimations(): void {
@@ -98,7 +98,6 @@ export class AppComponent implements OnInit{
 
   initialAnimations(): void {
     this.headerOnStartState = "onStart";
-    gsap.registerPlugin(ScrollTrigger);
   }
 
   initScrollAnimations(): void {
@@ -152,4 +151,29 @@ export class AppComponent implements OnInit{
     
   }
 
+  initFooterAnimations(): void {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: this.footer.nativeElement,
+        start: "top 92%",
+        onEnter: () => {
+          gsap.to(this.footer.nativeElement, {
+            opacity: 1,
+            transform: "scale(1)",
+            duration: 0.2
+          })
+          },
+        onLeaveBack: () => {
+          gsap.to(this.footer.nativeElement, {
+            opacity: 0,
+            transform: "scale(0.9)",
+            duration: 0.2
+          })
+        }
+        }
+      }
+    )
+  }
 }
