@@ -61,12 +61,12 @@ export class AppComponent implements OnInit{
       {
         webkitFilter:"blur(" + 0 + "px)",
         scale: 1,
-        transform: "rotate3d( 1, 0, -0.5, 0deg)",
+        transform: "rotate3d( 1, 0, -0.15, 0deg)",
       }
       ,{
       webkitFilter:"blur(" + 7 + "px)",
-      scale: 0.4,
-      transform: "rotate3d( 1, 0, -0.5, 20deg)",
+      scale: 0.6,
+      transform: "rotate3d( 1, 0, -0.15, 40deg)",
     });
 
     const textTimeline = gsap.timeline({

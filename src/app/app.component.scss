@@ -1,5 +1,5 @@
 .main {
-
+    color: white;
     .header-container {
         margin: 22rem auto 6rem;
         width: auto;
@@ -19,7 +19,6 @@
                 transform: translateZ(2000px);
                 // text-shadow: 25px -15px 6px #000000;
                 font-size: 5rem;
-                color: white;
                 text-align: center;
                 // animation: 0.7s linear forwards headerIntro; 
                 
@@ -55,12 +54,11 @@
     .text-container {
         width: 25rem;
         height: 0;
-        color: white;
         margin: 0 auto;
         div {
             position: relative;
             font-size: 3.5rem;
-            top: -20rem;
+            top: -15rem;
             left: -10rem;
             font-weight: 600;
             line-height: 4.5rem;
@@ -72,7 +70,100 @@
     }
 
     .la-suite {
+        margin: 25rem auto 0;
+        align-items: center;
+        
+
+        .panelDroite{
+            
+            img {
+                width: 25rem;
+                border-radius: 2rem;
+            }
+        }
+    }
+    .la-suite2 {
         height: 30rem;
+        margin-top: 20rem;
+        .panelGauche {
+            margin-top: 10rem;
+            div {
+                img {
+                    width: 15rem;
+                }
+            }
+            div:first-child {
+                img {
+                    &:first-child {
+                        transform: rotate(-10deg);
+                        margin-bottom: -2rem;
+                        position: relative;
+                        z-index: 4;
+                        left: 0.4rem;
+                    }
+                    &:nth-child(2) {
+                        transform: rotate(9deg);
+                        position: relative;
+                        z-index: 3;
+                        margin-bottom: -1rem;
+                        left: 2rem;
+                    }
+                }
+                
+            }
+            div:nth-child(2) {
+                img {
+                    &:first-child {
+                        transform: rotate(16deg);
+                        margin-bottom: -2rem;
+                        position: relative;
+                        right: 4rem;
+                        z-index: 2;
+                    }
+                    &:nth-child(2) {
+                        transform: rotate(-8deg);
+                        position: relative;
+                        z-index: 1;
+                        right: 3rem;
+                    }
+                }
+            }
+        }
+        .panelDroite.panelText{
+            width: 25rem;
+            position: relative;
+            right: -5rem;
+        }
+    }
+}
+
+.panel {
+    width: 55rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5rem;
+    margin: 0 auto 0;
+    .panelText {
+        h4 {
+            color: #4156ff;
+            font-family: 'Arial';
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.7rem;
+        }
+        h3 {
+            margin-top: 2rem;
+            font-size: 2.5rem;
+            line-height: 3rem;
+        }
+        p {
+            line-height: 2rem;
+            margin-top: 2rem;
+            color: #646464;
+
+        }
     }
 }
 
