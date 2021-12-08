@@ -1,5 +1,6 @@
 .main {
     color: white;
+    
     .header-container {
         margin: 22rem auto 6rem;
         width: auto;
@@ -83,16 +84,18 @@
         }
     }
     .la-suite2 {
-        height: 30rem;
         margin-top: 20rem;
         .panelGauche {
             margin-top: 10rem;
             div {
+                filter: brightness(0.5);
                 img {
                     width: 15rem;
                 }
             }
             div:first-child {
+                position: relative;
+                z-index: 2;
                 img {
                     &:first-child {
                         transform: rotate(-10deg);
@@ -112,6 +115,8 @@
                 
             }
             div:nth-child(2) {
+                position: relative;
+                z-index: 1;
                 img {
                     &:first-child {
                         transform: rotate(16deg);
@@ -132,8 +137,12 @@
         .panelDroite.panelText{
             width: 25rem;
             position: relative;
-            right: -5rem;
+            right: 0rem;
         }
+    }
+
+    .la-suite3 {
+        height: 40rem;
     }
 }
 

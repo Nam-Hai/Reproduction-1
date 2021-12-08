@@ -22,6 +22,9 @@ export class AppComponent implements OnInit{
   @ViewChild('cardHover', {static: true}) cardHover: ElementRef<HTMLElement>;
   @ViewChild('header', {static: true}) header: ElementRef<HTMLElement>;
   @ViewChild('text1', {static: true}) text1: ElementRef<HTMLElement>;
+  @ViewChild('panelDroite', {static: true}) panelDroite: ElementRef<HTMLElement>;
+  @ViewChild('image', {static: true}) image: ElementRef<HTMLElement>;
+
 
 
   constructor(@Inject(DOCUMENT) private document: Document) {
@@ -31,8 +34,66 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.initialAnimations();
     this.initScrollAnimations()  
+    this.initScrollImagesAnimations()
     
-    
+  }
+
+  initScrollImagesAnimations(): void {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: this.panelDroite.nativeElement,
+        start: "top 340px",
+        end: "+=800px",
+        scrub: true,
+        pin: true,
+      }
+    })
+
+    const images = this.document.querySelectorAll(".image"); 
+    images.forEach(elem => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: elem,
+          start: "top 352px",
+          end: "bottom 402px",
+          onEnter: () => {
+            gsap.to(elem, {
+              transform: "scale(1.1)",
+              filter: "brightness(1)",
+              ease: "power1.inOut",
+              duration: 1.3
+            })
+          },
+          onEnterBack: () => {
+            gsap.to(elem, {
+              transform: "scale(1.1)",
+              filter: "brightness(1)",
+              ease: "power1.inOut",
+              duration: 1.3
+            })
+          },
+          onLeaveBack: self => {
+            gsap.to(elem,{
+              transform: "scale(1)",
+              filter: "brightness(0.5)",
+              ease: "power1.inOut",
+              duration: 1.3
+            })
+          },
+          onLeave: self => {
+            gsap.to(elem,{
+              transform: "scale(1)",
+              filter: "brightness(0.5)",
+              ease: "power1.inOut",
+              duration: 1.3
+            })
+          },
+
+        }
+      })
+    });
   }
 
   initialAnimations(): void {
@@ -65,7 +126,7 @@ export class AppComponent implements OnInit{
       }
       ,{
       webkitFilter:"blur(" + 7 + "px)",
-      scale: 0.6,
+      scale: 0.51,
       transform: "rotate3d( 1, 0, -0.15, 40deg)",
     });
 
