@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, OnInit, Inject } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { DOCUMENT  } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { Animations } from "./services/annimation";
 
 
@@ -179,5 +179,14 @@ export class AppComponent implements OnInit{
         }
       }
     )
+  }
+
+  @ViewChild('scrollUp', { static: true })
+  scrollUp!: ElementRef;
+  
+
+  test(): void {
+    console.log("yo");
+    this.scrollUp.nativeElement.scrollIntoView({behavior: "smooth"});
   }
 }
