@@ -13,13 +13,15 @@ nav {
         font-weight: 600;
         font-size: 2rem;
     }
-    svg {
-        width: 3rem;
-    }
+    
     .github {
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        svg {
+            width: 3rem;
+        }
         &:hover .gradient-content {
             opacity: 1;
         }
